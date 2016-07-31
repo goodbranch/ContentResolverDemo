@@ -1,0 +1,12 @@
+<resources>
+  <string name="app_name">ContentProviderDemo</string>
+
+
+  <string name="filesystem_grid_photo">图片</string>
+  <string name="filesystem_grid_music">音乐</string>
+  <string name="filesystem_grid_video">视频</string>
+  <string name="filesystem_grid_text">文档</string>
+  <string name="filesystem_grid_apk">安装包</string>
+  <string name="filesystem_grid_zip">压缩包</string>
+
+</resources>
