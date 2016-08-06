@@ -8,7 +8,16 @@
 >
 >`insert(...)` 把新文件插入到指定Uri表中，后面跟数据库键值对。
 
-#### 2.媒体文件的Uri是如何获取的
+#### 2.具体参数的介绍
+>
+`uri`：用于检索内容的 URI
+`projection`：要返回的列的列表。传递 null 时，将返回所有列，这样会导致效率低下
+`selection`：一种用于声明要返回哪些行的过滤器，其格式为 SQL WHERE 子句（WHERE 本身除外）。传递 null 时，将为指定的 URI 返回所有行
+`selectionArgs`：您可以在 selection 中包含 ?s，它将按照在 selection 中显示的顺序替换为 selectionArgs 中的值。该值将绑定为字串符
+`sortOrder`：行的排序依据，其格式为 SQL ORDER BY 子句（ORDER BY 自身除外）。传递 null 时，将使用默认排序顺序（可能并未排序）
+>
+
+#### 3.媒体文件的Uri是如何获取的
 >
 >找到`MediaStore`，里面内部类有`Images`,`Audio`,`Video`,`Files`这几个包含了所有Android媒体类型，例如我们要查询图片则通过`Images` 得到对应的`EXTERNAL_CONTENT_URI`就能按照`ContentResolver` 的方法查询图片，同时`Images` 中还有缩略图类，可以通过查询到图片的缩略图，表的字段名都一样，关键也是`Uri`,可以通过`Images`中的`Thumbnails`获取。以此类推可以去看看其他几种媒体类型中的相关Uri以及字段名和能查询到的信息。
 >
